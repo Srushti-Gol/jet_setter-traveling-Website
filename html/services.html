@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+   <meta charset="utf-8">
+   <title>JET SETTER</title>
+   <link rel="stylesheet" href="../css/services.css">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<body>
+   <nav>
+      <div class="menu-icon">
+         <span class="fas fa-bars"></span>
+      </div>
+      <div class="logo-image">
+         <img src="../images/JET SETTER .jpg" class="img-fluid">
+      </div>
+      <div class="nav-items">
+         <li><a href="index.html">Home</a></li>
+         <li><a href="Pakages.html">Packages</a></li>
+         <li><a href="services.html">Services</a></li>
+         <li><a href="gallery.html">Gallery</a></li>
+         <li><a href="book.html">Book</a></li>
+         <li><a href="review.html">Review</a></li>
+         <li><a href="contact.html">Contact</a></li>
+         <li><i class="fas fa-user" id="login-btne"></i></li>
+      </div>
+      <div class="search-icon">
+         <span class="fas fa-search"></span>
+      </div>
+      <div class="cancel-icon">
+         <span class="fas fa-times"></span>
+      </div>
+      <form action="https://www.google.com/search" method="get">
+         <input type="search" class="search-data" placeholder="Search" required>
+         <button type="submit" class="fas fa-search"></button>
+      </form>
+   </nav>
+
+   <div class="login-form-container">
+
+      <i class="fas fa-times" id="form-close"></i>
+
+      <form action="">
+         <h3>login</h3>
+         <input type="email" class="box" placeholder="Enter your email">
+         <input type="password" class="box" placeholder="Enter your password">
+         <input type="submit" value="Login Now" class="btn">
+         <input type="checkbox" id="remember">
+         <label for="remember">Remember me</label>
+         <p>Forgot Password? <a href="#">Click here</a></p>
+         <p>Don't have an account? <a href="#">Register Now</a></p>
+      </form>
+
+   </div>
+
+   <section class="services">
+
+    <h1 class="heading"> what we offer </h1>
+
+    <div class="box-container">
+
+        <div class="box">
+            <img src="../images/serv-1.png" alt="">
+            <h3>complete guide</h3>
+            <p>This provides overview of entire website with all sections.</p>
+            <a href="index.html" class="btne">read more</a>
+        </div>
+
+        <div class="box">
+            <img src="../images/serv-2.png" alt="">
+            <h3>custom packages</h3>
+            <p>This will help you to customize your packages with cheaper prices.</p>
+            <a href="index.html" class="btne">read more</a>
+        </div>
+
+        <div class="box">
+            <img src="../images/serv-3.png" alt="">
+            <h3>family trips</h3>
+            <p>Need a family trip guide?Jump here to explore.</p>
+            <a href="index.html" class="btne">read more</a>
+        </div>
+
+        <div class="box">
+            <img src="../images/serv-4.png" alt="">
+            <h3>train guides</h3>
+            <p>A complete train travel guide for you and your loved ones.</p>
+            <a href="index.html" class="btne">read more</a>
+        </div>
+
+        <div class="box">
+            <img src="../images/serv-5.png" alt="">
+            <h3>adventure trail</h3>
+            <p>Famous trekking places and ongoing elite camps details.Along with heading trekking details</p>
+            <a href="index.html" class="btne">read more</a>
+        </div>
+
+        <div class="box">
+            <img src="../images/serv-6.png" alt="">
+            <h3>various adventures</h3>
+            <p>Want to explore more activities along with trekking?You're at a right place.</p>
+            <a href="index.html" class="btne">read more</a>
+        </div>
+        
+    </div>
+
+</section>
+
+   <script>
+      const menubtne = document.querySelector(".menu-icon span");
+      const searchbtne = document.querySelector(".search-icon");
+      const cancelbtne = document.querySelector(".cancel-icon");
+      const items = document.querySelector(".nav-items");
+      const form = document.querySelector("form");
+      let formbtne = document.querySelector('#login-btne');
+      let loginForm = document.querySelector('.login-form-container');
+      let formClose = document.querySelector('#form-close');
+      let videobtne = document.querySelectorAll('.vid-btne');
+
+      menubtne.onclick = () => {
+         items.classList.add("active");
+         menubtne.classList.add("hide");
+         searchbtne.classList.add("hide");
+         cancelbtne.classList.add("show");
+      }
+      cancelbtne.onclick = () => {
+         items.classList.remove("active");
+         menubtne.classList.remove("hide");
+         searchbtne.classList.remove("hide");
+         cancelbtne.classList.remove("show");
+         form.classList.remove("active");
+         cancelbtne.style.color = "#ff3d00";
+      }
+      searchbtne.onclick = () => {
+         form.classList.add("active");
+         searchbtne.classList.add("hide");
+         cancelbtne.classList.add("show");
+      }
+
+      formbtne.addEventListener('click', () => {
+         loginForm.classList.add('active');
+      });
+
+      formClose.addEventListener('click', () => {
+         loginForm.classList.remove('active');
+      });
+      videobtne.forEach(btne =>{
+      btne.addEventListener('click', ()=>{
+        document.querySelector('.controls .active').classList.remove('active');
+        btne.classList.add('active');
+        let src = btne.getAttribute('data-src');
+        document.querySelector('#video-slider').src = src;
+    });
+});
+let btnl = document.querySelector('.btn');
+      btnl.onclick = () => {
+         alert("You have login Successfully");
+      }
+   </script>
+
+   
+</body>
+
+</html>

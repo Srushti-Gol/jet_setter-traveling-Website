@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+   <meta charset="utf-8">
+   <title>JET SETTER</title>
+   <link rel="stylesheet" href="../css/book.css">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<body>
+   <nav>
+      <div class="menu-icon">
+         <span class="fas fa-bars"></span>
+      </div>
+      <div class="logo-image">
+         <img src="../images/JET SETTER .jpg" class="img-fluid">
+      </div>
+      <div class="nav-items">
+         <li><a href="index.html">Home</a></li>
+         <li><a href="Pakages.html">Packages</a></li>
+         <li><a href="services.html">Services</a></li>
+         <li><a href="gallery.html">Gallery</a></li>
+         <li><a href="book.html">Book</a></li>
+         <li><a href="review.html">Review</a></li>
+         <li><a href="contact.html">Contact</a></li>
+         <li><i class="fas fa-user" id="login-btn"></i></li>
+      </div>
+      <div class="search-icon">
+         <span class="fas fa-search"></span>
+      </div>
+      <div class="cancel-icon">
+         <span class="fas fa-times"></span>
+      </div>
+      <form action="https://www.google.com/search" method="get">
+         <input type="search" class="search-data" placeholder="Search" required>
+         <button type="submit" class="fas fa-search"></button>
+      </form>
+   </nav>
+
+   <div class="login-form-container">
+
+      <i class="fas fa-times" id="form-close"></i>
+
+      <form action="">
+         <h3>login</h3>
+         <input type="email" class="box" placeholder="enter your email">
+         <input type="password" class="box" placeholder="enter your password">
+         <input type="submit" value="login now" class="btn">
+         <input type="checkbox" id="remember">
+         <label for="remember">remember me</label>
+         <p>forget password? <a href="#">click here</a></p>
+         <p>don't have and account? <a href="#">register now</a></p>
+      </form>
+
+   </div>
+
+<section class="book">
+   <div class="con">
+      <!-- <span class="big-circle"></span>
+      <img src="img/shape.png" class="square" alt="" /> -->
+      <div class="form">
+        <div class="contact-info">
+          <h3 class="title">Book Your trip!</h3>
+          <div class="input-container">
+            <input type="text" name="name" class="input" />
+            <label for="">Name</label>
+            <span>Username</span>
+          </div>
+          <div class="input-container">
+            <input type="email" name="email" class="input" />
+            <label for="">Email</label>
+            <span>Email</span>
+          </div>
+          <div class="input-container">
+            <input type="text" name="name" class="input" />
+            <label for="">Phone No.</label>
+            <span>Phone No.</span>
+          </div>
+          <div class="input-container textarea">
+            <textarea name="Address" class="input"></textarea>
+            <label for="">Address</label>
+            <span>Address</span>
+          </div>
+        </div>
+
+        <div class="contact-form">
+          <!-- <span class="circle one"></span>
+          <span class="circle two"></span> -->
+
+          <form action="index.html" autocomplete="off">
+            
+            <div class="input-container">
+              <input type="text" name="location" class="input" />
+              <label for="">Where To</label>
+              <span>Where To</span>
+            </div>
+            <div class="input-container">
+              <input type="number" name="guests" class="input" />
+              <label for="">How Many</label>
+              <span>How Many</span>
+            </div>
+            <h4 class="title">Arrivals</h4>
+            <div class="input-container">
+              <input type="date" name="arrivals" class="input" />
+            </div>
+            <h4 class="title">Leaving</h4>
+            <div class="input-container">
+              <input type="date" name="leaving" class="input" />
+            </div>
+            <input type="submit" value="Send" class="btn" />
+          </form>
+        </div>
+      </div>
+    </div>
+
+</section>
+   <script>
+      const menuBtn = document.querySelector(".menu-icon span");
+      const searchBtn = document.querySelector(".search-icon");
+      const cancelBtn = document.querySelector(".cancel-icon");
+      const items = document.querySelector(".nav-items");
+      const form = document.querySelector("form");
+      let formBtn = document.querySelector('#login-btn');
+      let loginForm = document.querySelector('.login-form-container');
+      let formClose = document.querySelector('#form-close');
+      let videoBtn = document.querySelectorAll('.vid-btn');
+
+      menuBtn.onclick = () => {
+         items.classList.add("active");
+         menuBtn.classList.add("hide");
+         searchBtn.classList.add("hide");
+         cancelBtn.classList.add("show");
+      }
+      cancelBtn.onclick = () => {
+         items.classList.remove("active");
+         menuBtn.classList.remove("hide");
+         searchBtn.classList.remove("hide");
+         cancelBtn.classList.remove("show");
+         form.classList.remove("active");
+         cancelBtn.style.color = "#ff3d00";
+      }
+      searchBtn.onclick = () => {
+         form.classList.add("active");
+         searchBtn.classList.add("hide");
+         cancelBtn.classList.add("show");
+      }
+
+      formBtn.addEventListener('click', () => {
+         loginForm.classList.add('active');
+      });
+
+      formClose.addEventListener('click', () => {
+         loginForm.classList.remove('active');
+      });
+      videoBtn.forEach(btn =>{
+      btn.addEventListener('click', ()=>{
+        document.querySelector('.controls .active').classList.remove('active');
+        btn.classList.add('active');
+        let src = btn.getAttribute('data-src');
+        document.querySelector('#video-slider').src = src;
+    });
+});
+const inputs = document.querySelectorAll(".input");
+
+function focusFunc() {
+  let parent = this.parentNode;
+  parent.classList.add("focus");
+}
+
+function blurFunc() {
+  let parent = this.parentNode;
+  if (this.value == "") {
+    parent.classList.remove("focus");
+  }
+}
+
+inputs.forEach((input) => {
+  input.addEventListener("focus", focusFunc);
+  input.addEventListener("blur", blurFunc);
+});
+
+   </script>
+</body>
+
+</html>
